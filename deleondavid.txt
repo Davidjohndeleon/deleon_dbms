@@ -1,0 +1,56 @@
+DROP DATABASE studentinformations;
+CREATE DATABASE studentinformations;
+
+USE studentinformations;
+
+CREATE TABLE student(
+    studNo int PRIMARY KEY AUTO_INCREMENT,
+    studFname varchar(15),
+    studLname varchar(15),
+    Major varchar(15),
+    gender ENUM("M","F"), 
+    homeaddress varchar(15)
+);
+
+CREATE TABLE grade(
+    studNo int PRIMARY KEY AUTO_INCREMENT,
+    subjectCode varchar(15),
+    grade int
+    
+) ;
+
+CREATE TABLE subject(
+	subjectCode varchar(15)PRIMARY KEY,
+	subjectdescrip varchar(15)
+    
+);
+INSERT INTO student VALUES
+("S-101", "ANA", "CRUZ", "ECE", "F", "Malolos, Bulacan"),
+("S-102", "HAZEL", "PONCE", "COE", "F", "Plaridel, Bulacan"),
+("S-103", "CRISTOV", "CONCIO", "ECE", "M", "Malolos, Bulacan"),
+("S-104", "ARIS", "CLAVIO", "COE", "M", "Pulilan, Bulacan"),
+("S-105", "HONEY", "PELAYO", "COE", "F", "Plaridel, Bulacan"),
+("S-106", "CARRIE", "ABAO", "ECE", "F", "Pulilan, Bulacan");
+
+INSERT INTO grade VALUES
+( "S-101", "Chem 123", "2.00"),
+( "S-101", "Math 122", "1.00"),
+( "S-101", "Math 123", "1.50"),
+( "S-102", "Chem 123", "1.75"),
+( "S-102", "Math 122", "1.25"),
+( "S-102", "Math 123", "1.50"),
+( "S-103", "Chem 123", "2.00"),
+( "S-103", "Math 122", "1.75"),
+( "S-103", "Math 123", "1.25"),
+( "S-104", "Chem 123", "1.25"),
+( "S-104", "Math 122", "2.25"),
+( "S-104", "Math 123", "2.50"),
+( "S-105", "Chem 123", "1.00"),
+( "S-105", "Math 122", "1.25"),
+( "S-105", "Math 123", "2.50"),
+( "S-106", "Chem 123", "100"),
+( "S-106", "Math 122", "1.50"),
+( "S-106", "Math 123", "1.70");
+
+
+SELECT * FROM `student` WHERE gender='F' AND Major='ECE' AND homeaddress = 'Malolos, Bulacan';
